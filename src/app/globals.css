@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --background: #151515;
+  --foreground: #ededed;
+}
+
+@theme {
+  --color-secondary: color-mix(in oklab, var(--color-white) 30%, transparent);
+  --color-lesswhite: color-mix(in oklab, var(--color-white) 75%, transparent);
+  --color-modal: color-mix(in oklab, var(--color-black) 50%, transparent);
+  --color-modal-desc: #8b9db5;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
