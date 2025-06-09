@@ -18,8 +18,8 @@ const HeadButton = ({ label, href, newTab = false, disabled = false }: HeadButto
       href={href}
       target={newTab ? "_blank" : undefined}
       className={cn(
-        "hover:border-b-2 px-4 flex justify-center items-center h-10 font-semibold",
-        "text-lesswhite hover:text-white",
+        "hover:border-b-2 px-4 flex justify-center items-center min-h-12 font-semibold",
+        "text-lesswhite hover:text-white w-full max-w-70",
         "active:bg-white/10 sm:active:bg-transparent rounded-xl sm:rounded-none",
         disabled ? "pointer-events-none opacity-50 line-through" : undefined
       )}
@@ -32,7 +32,7 @@ const HeadButton = ({ label, href, newTab = false, disabled = false }: HeadButto
 const NavButtons = (
   <>
     <HeadButton label="COMANDOS" href="/commands" />
-    <HeadButton label="ADICIONAR" href={INVITE_URL} />
+    <HeadButton label="CONVIDAR" href={INVITE_URL} />
     <HeadButton label="GITHUB" href={REPOSITORY_URL} newTab={true} disabled={true} />
   </>
 )
@@ -72,9 +72,13 @@ export const Nav = () => {
       <nav className="flex justify-between items-center min-h-[60px] w-200 max-w-[90%]">
         <Link
           href={"/"}
-          className="px-0 sm:px-2 flex justify-center items-center h-10 text-2xl font-bold font-sans rounded-xl hover:bg-white/10"
+          className={cn(
+            "flex justify-center items-center h-10 text-2xl font-bold font-sans rounded-xl",
+            "active:bg-white/10 hover:bg-white/10",
+            "px-2 sm:mx-0 -mx-2"
+          )}
         >
-          MOACYR
+          Moacyr
         </Link>
         <div className="hidden sm:flex">{NavButtons}</div>
 
@@ -98,7 +102,7 @@ export const Nav = () => {
         <nav
           className={cn(
             "w-[90%] overflow-y-auto sm:hidden py-2 border-t-2 border-secondary",
-            "flex flex-wrap justify-center min-h-[60px] max-h-[310px]"
+            "flex min-h-[60px] max-h-[310px] flex-col items-center"
           )}
         >
           {NavButtons}
