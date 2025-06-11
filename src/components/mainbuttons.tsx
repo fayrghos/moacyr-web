@@ -28,7 +28,8 @@ export const MainButton = ({
         "bg-linear-to-t text-shadow-md",
         disabled ? "pointer-events-none opacity-50 line-through" : undefined,
         colorBg,
-        colorGrad
+        colorGrad,
+        "transition hover:scale-105 ease-out transition-discrete"
       )}
     >
       {label}
