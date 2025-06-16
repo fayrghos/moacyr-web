@@ -20,6 +20,7 @@ export default function Home() {
             <MainButton
               label="ADICIONAR AO DISCORD"
               href={INVITE_URL}
+              newTab={true}
               colorBg="bg-[#4c56c5]"
               colorGrad="hover:from-indigo-700"
             />
@@ -32,7 +33,6 @@ export default function Home() {
               newTab={true}
               colorBg="bg-gray-600"
               colorGrad="hover:from-gray-700"
-              disabled={true}
             />
           </div>
 
@@ -43,7 +43,7 @@ export default function Home() {
             )}
           >
             <p className="text-md text-center text-lesswhite">
-              O código-fonte é escrito na linguagem Python 3 e estará disponível em breve sob a licença AGPLv3.
+              O código-fonte é escrito na linguagem Python 3 e está disponível sob a licença AGPLv3.
             </p>
           </div>
         </section>

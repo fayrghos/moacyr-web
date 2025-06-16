@@ -32,8 +32,8 @@ const HeadButton = ({ label, href, newTab = false, disabled = false }: HeadButto
 const NavButtons = (
   <>
     <HeadButton label="COMANDOS" href="/commands" />
-    <HeadButton label="CONVIDAR" href={INVITE_URL} />
-    <HeadButton label="GITHUB" href={REPOSITORY_URL} newTab={true} disabled={true} />
+    <HeadButton label="CONVIDAR" href={INVITE_URL} newTab={true} />
+    <HeadButton label="GITHUB" href={REPOSITORY_URL} newTab={true} />
   </>
 )
 
