@@ -18,7 +18,7 @@ const HeadButton = ({ label, href, newTab = false, disabled = false }: HeadButto
       href={href}
       target={newTab ? "_blank" : undefined}
       className={cn(
-        "hover:border-b-2 px-4 flex justify-center items-center min-h-12 font-semibold",
+        "hover:border-b-2 px-3 flex justify-center items-center min-h-12 sm:min-h-10 font-semibold",
         "text-lesswhite hover:text-white w-full max-w-70",
         "active:bg-white/10 sm:active:bg-transparent rounded-xl sm:rounded-none",
         disabled ? "pointer-events-none opacity-50 line-through" : undefined
@@ -69,7 +69,7 @@ export const Nav = () => {
 
   return (
     <header className="sticky top-0 overflow-hidden z-50 bg-black/60 backdrop-blur-md border-b-2 border-secondary flex flex-col items-center justify-center">
-      <nav className="flex justify-between items-center min-h-[60px] w-200 max-w-[90%]">
+      <nav className="flex justify-between items-center min-h-[60px] sm:min-h-[55px] w-200 max-w-[90%]">
         <Link
           href={"/"}
           className={cn(
@@ -102,7 +102,7 @@ export const Nav = () => {
         <nav
           className={cn(
             "w-[90%] overflow-y-auto sm:hidden py-2 border-t-2 border-secondary",
-            "flex min-h-[60px] max-h-[310px] flex-col items-center"
+            "flex max-h-[275px] flex-col items-center"
           )}
         >
           {NavButtons}

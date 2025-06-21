@@ -13,7 +13,7 @@ interface CommandInfoProps {
 export const CommandSection = ({ title, children }: CommandSectionProps) => {
   return (
     <section className="w-full space-y-5">
-      <p className="text-3xl font-bold flex justify-center">{title}</p>
+      <p className="text-2xl font-bold flex justify-center">{title}</p>
 
       <div className="space-y-3 flex flex-col items-center">{children}</div>
     </section>
