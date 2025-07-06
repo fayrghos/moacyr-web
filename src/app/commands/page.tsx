@@ -31,8 +31,8 @@ export default function Commands() {
         </CommandSection>
 
         <CommandSection title="Steam">
-          <CommandInfo title="/steam user-id" info="Exibe uma lista dos IDs de um usuário Steam." />
-          <CommandInfo title="/steam workshop" info="Exibe informações sobre um item na Oficina Steam." />
+          <CommandInfo title="/steam user" info="Exibe informações sobre algum usuário Steam." />
+          <CommandInfo title="/steam workshop" info="Exibe informações sobre um item da Oficina Steam." />
         </CommandSection>
 
         <CommandSection title="Desenvolvedor">
