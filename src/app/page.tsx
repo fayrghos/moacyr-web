@@ -1,4 +1,4 @@
-import { MainButton } from "@/components/mainbuttons"
+import { MainButton } from "@/components/home"
 import { INVITE_URL, REPOSITORY_URL } from "@/constants"
 import { cn } from "@/lib/utils"
 

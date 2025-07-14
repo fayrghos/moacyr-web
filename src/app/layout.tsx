@@ -1,7 +1,7 @@
+import { Footer } from "@/components/footer"
+import { Nav } from "@/components/header"
 import type { Metadata } from "next"
 import "./globals.css"
-import { Nav } from "@/components/nav"
-import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
   title: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-br">
-      <body className={"antialiased text-shadow-lg text-shadow-black/30"}>
+      <body className={"antialiased text-shadow-lg text-shadow-black/30 overflow-y-scroll"}>
         <Nav />
         {children}
         <Footer />
