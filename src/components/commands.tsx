@@ -26,8 +26,8 @@ export const CommandDetails = ({ title, info }: CommandInfoProps) => {
       )}
     >
       <div className="flex flex-col h-full justify-center py-2">
-        <p className="px-5 text-lg">{title}</p>
-        <p className="px-5 text-md text-modal-desc">{info}</p>
+        <p className="text-lg px-5">{title}</p>
+        <p className="text-modal-desc px-5">{info}</p>
       </div>
     </div>
   )

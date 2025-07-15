@@ -2,29 +2,88 @@
 
 import { IndexLabel, IndexSection } from "@/components"
 import { CommandDetails, CommandSection } from "@/components/commands"
+import { cn } from "@/lib/utils"
 import { Fragment, useState } from "react"
 
+const IndexIcons = {
+  Closed: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25"
+      />
+    </svg>
+  ),
+  Open: (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="size-6"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12"
+      />
+    </svg>
+  ),
+}
+
 export const CommandPage = () => {
-  const [state, setState] = useState(-1)
+  const [buttonState, setButtonState] = useState(-1)
+  const [menuState, setMenuState] = useState(false)
 
   const all_commands = sections.map((section, index) => <Fragment key={index}>{section.element}</Fragment>)
-  const index_labels = sections.map((section, index) => (
-    <IndexLabel active={state == index} key={index} title={section.title} onClick={() => setState(index)} />
+  const all_labels = sections.map((section, index) => (
+    <IndexLabel
+      marked={buttonState == index}
+      key={index}
+      title={section.title}
+      onClick={() => setButtonState(index)}
+      disabled={!menuState}
+    />
   ))
 
   return (
     <>
-      <div className="w-50 max-w-[90%]">
+      <div className="w-60 sm:w-50 max-w-[90%] flex space-x-2 relative">
         {
           <IndexSection>
-            <IndexLabel active={state < 0} title="Todos" onClick={() => setState(-1)} />
-            {index_labels}
+            <IndexLabel
+              marked={buttonState < 0}
+              title="Todos"
+              onClick={() => setButtonState(-1)}
+              disabled={!menuState}
+            />
+            {all_labels}
           </IndexSection>
         }
+        <button
+          onClick={() => setMenuState(!menuState)}
+          className={cn(
+            "hover:border-b-2 border-2 border-secondary rounded-xl flex justify-center items-center font-semibold",
+            "max-w-10 w-full max-h-10 h-full",
+            "text-lesswhite hover:text-white active:bg-white/10 bg-modal shadow-md shadow-black/50",
+            "sm:hidden"
+          )}
+        >
+          {menuState ? IndexIcons.Open : IndexIcons.Closed}
+        </button>
       </div>
 
-      <div className="w-200 max-w-full space-y-15">
-        <CommandSection>{state < 0 ? all_commands : sections[state].element}</CommandSection>
+      <div className="w-170 max-w-full space-y-15">
+        <CommandSection>{buttonState < 0 ? all_commands : sections[buttonState].element}</CommandSection>
       </div>
     </>
   )
