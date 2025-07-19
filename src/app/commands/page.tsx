@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { CommandPage } from "./list"
+import { CommandPage } from "./content"
 
 export const metadata = {
   title: "Comandos",
@@ -14,7 +14,7 @@ export default function Commands() {
           "sm:py-[5%] sm:flex-row sm:space-x-6 sm:flex sm:items-start"
         )}
       >
-        {<CommandPage></CommandPage>}
+        <CommandPage />
       </div>
     </main>
   )
