@@ -1,5 +1,5 @@
-import { Footer } from "@/components/footer"
-import { Nav } from "@/components/header"
+import { Footer } from "@/components/layout/Footer"
+import { Nav } from "@/components/layout/Header"
 import type { Metadata } from "next"
 import "./globals.css"
 

@@ -1,17 +1,19 @@
 import { cn } from "@/lib/utils"
 
-interface IndexSectionProps {
-  children: React.ReactNode
-}
-
-interface IndexLabelProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface CommandCategoriesProps extends React.HTMLAttributes<HTMLButtonElement> {
   title: string
   className?: string
   marked: boolean
   disabled: boolean
 }
 
-export const IndexLabel = ({ title, className, marked = false, disabled, ...props }: IndexLabelProps) => {
+export const CommandCategories = ({
+  title,
+  className,
+  marked = false,
+  disabled,
+  ...props
+}: CommandCategoriesProps) => {
   let extras = ""
 
   // All buttons in mobile
@@ -43,13 +45,5 @@ export const IndexLabel = ({ title, className, marked = false, disabled, ...prop
         <p className="px-3 text-md">{title}</p>
       </div>
     </button>
-  )
-}
-
-export const IndexSection = ({ children }: IndexSectionProps) => {
-  return (
-    <section className="w-full space-y-5">
-      <div className="space-y-3 flex flex-col items-center">{children}</div>
-    </section>
   )
 }

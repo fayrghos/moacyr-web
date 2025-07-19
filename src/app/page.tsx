@@ -1,6 +1,6 @@
-import { MainButton } from "@/components/home"
+import { HomeButton } from "@/components/home/Buttons"
+import { Modal } from "@/components/Modal"
 import { INVITE_URL, REPOSITORY_URL } from "@/constants"
-import { cn } from "@/lib/utils"
 
 export default function Home() {
   return (
@@ -17,35 +17,26 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center max-w-full">
-            <MainButton
+            <HomeButton
               label="ADICIONAR AO DISCORD"
               href={INVITE_URL}
-              newTab={true}
               colorBg="bg-[#4c56c5]"
               colorGrad="hover:from-indigo-700"
             />
-
             <p className="text-lg">ou</p>
-
-            <MainButton
+            <HomeButton
               label="HOSPEDE VOCÊ MESMO"
               href={REPOSITORY_URL}
-              newTab={true}
               colorBg="bg-gray-600"
               colorGrad="hover:from-gray-700"
             />
           </div>
 
-          <div
-            className={cn(
-              "bg-modal border-2 border-secondary rounded-xl items-center",
-              "justify-center shadow-md shadow-black/50 sm:w-[50%] w-[85%] p-3 flex flex-col opacity-80"
-            )}
-          >
+          <Modal className="sm:w-[50%] w-[85%] p-3 opacity-80">
             <p className="text-md text-center text-lesswhite">
               O código-fonte é escrito na linguagem Python 3 e está disponível sob a licença AGPLv3.
             </p>
-          </div>
+          </Modal>
         </section>
       </div>
     </main>
