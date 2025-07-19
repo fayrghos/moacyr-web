@@ -1,49 +1,43 @@
 import { cn } from "@/lib/utils"
+import { ModalButton } from "../ModalButton"
 
 interface CommandCategoriesProps extends React.HTMLAttributes<HTMLButtonElement> {
-  title: string
+  label: string
   className?: string
-  marked: boolean
-  disabled: boolean
+  isSelected: boolean
+  isMenuExpanded: boolean
 }
 
 export const CommandCategories = ({
-  title,
+  label,
   className,
-  marked = false,
-  disabled,
+  isSelected,
+  isMenuExpanded,
   ...props
 }: CommandCategoriesProps) => {
-  let extras = ""
-
-  // All buttons in mobile
-  if (disabled) {
-    extras += "hidden"
-  }
-
-  // The marked button in any device
-  if (marked) {
-    extras += "border-white active:bg-none"
-  }
-
-  // Only the remaining button in mobile
-  if (marked && disabled) {
-    extras += "border-secondary sm:border-white"
-  }
-
   return (
-    <button
-      className={cn(
-        "bg-modal hover:bg-white/10 active:bg-white/10 border-2 w-full h-fit rounded-xl items-center",
-        "justify-center shadow-md shadow-black/50 hover: cursor-pointer sm:flex border-secondary",
-        `${extras}`,
-        `${className}`
-      )}
-      {...props}
-    >
-      <div className="flex flex-col h-full justify-center py-1.5">
-        <p className="px-3 text-md">{title}</p>
-      </div>
-    </button>
+    <>
+      {/* Desktop */}
+      <ModalButton
+        className={cn("hidden sm:flex", isSelected ? "border-white" : undefined, className)}
+        {...props}
+      >
+        {label}
+      </ModalButton>
+
+      {/* Mobile */}
+      <ModalButton
+        className={cn(
+          "flex sm:hidden",
+          !isSelected && !isMenuExpanded ? "hidden" : undefined,
+          isSelected && isMenuExpanded ? "border-white" : undefined,
+          isSelected && !isMenuExpanded ? "pointer-events-none" : undefined,
+          className
+        )}
+        {...props}
+      >
+        {label}
+      </ModalButton>
+    </>
   )
 }
