@@ -4,6 +4,7 @@ import { INVITE_URL, REPOSITORY_URL } from "@/constants"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { useState } from "react"
+import { ModalButton } from "../ModalButton"
 import { HeaderButton } from "./Buttons"
 import { HamIcons } from "./HamIcons"
 
@@ -33,20 +34,16 @@ export const Nav = () => {
         </Link>
         <div className="hidden sm:flex">{NavButtons}</div>
 
-        <button
+        <ModalButton
           onClick={() => setHamOpen(!hamOpen)}
-          className={cn(
-            "hover:border-b-2 w-10 border-2 border-secondary rounded-xl flex justify-center items-center h-10 font-semibold",
-            "text-lesswhite hover:text-white active:bg-white/10",
-            "sm:hidden"
-          )}
+          className="flex w-10 h-10 px-0 py-0 sm:hidden text-lesswhite bg-transparent"
         >
           {hamOpen ? HamIcons.Cross : HamIcons.Ham}
-        </button>
+        </ModalButton>
       </nav>
 
       <noscript>
-        <p className="sm:hidden text-red-400 mb-2 ">Ative o JavaScript para usar o menu!</p>
+        <p className="sm:hidden text-red-400 mb-2 ">Ative o JavaScript para usar os menus!</p>
       </noscript>
 
       {hamOpen && (
